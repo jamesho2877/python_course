@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Project work</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+</head>
+<body>
+<div id="nav">
+    <button id='product-btn'>
+        <img src="{{ url_for('static', filename = 'images/product.png') }}" alt="Product">
+        <br>Product
+    </button>
+    <button id='customer-btn'>
+        <img src="{{ url_for('static', filename = 'images/customer.png') }}" alt="Customer">
+        <br>Customer
+    </button>
+    <button id='order-btn'>
+        <img src="{{ url_for('static', filename = 'images/order.png') }}" alt="Order">
+        <br>Order
+    </button>
+</div>
+<script type=text/javascript>
+    $("#product-btn").click(function(){
+        window.location.href = "product";
+    });
+    $("#customer-btn").click(function(){
+        window.location.href = "customer";
+    });
+    $("#order-btn").click(function(){
+        window.location.href = "order";
+    });
+</script>
+</body>
+</html>

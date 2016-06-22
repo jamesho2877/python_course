@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+    <h2>{{ title }}</h2>
+    <div id="search">
+        <label>Search for </label>
+        <input id="txtSearch" type="search" value="" />
+        <lable>by </lable>
+        <select id="txtField">
+            {{ search_field|safe }}
+        </select>
+        <button id="btnSearch" value="{{ title.lower() }}">Search</button>
+    </div>
+
+    <div id="error">&nbsp;</div>
+
+    {% if title == 'Product' %}
+        <table class="data-table">
+            <tr>
+                {{ column_name|safe }}
+            </tr>
+            {% for item in list %}
+                <tr class="data-generated">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.unit_price }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>
+                        <button class='btnUpdate' name="{{ item.id }}"><img src="{{ url_for('static', filename = 'images/update.png') }}" alt="Update"></button>
+                        <button class='btnDelete' name="{{ item.id }}"><img src="{{ url_for('static', filename = 'images/delete.png') }}" alt="Delete"></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr class="last-row">
+                <td></td>
+                <td><input class="txtNameNew" type="text"/></td>
+                <td><input class="txtUnitPriceNew" type="number"/></td>
+                <td><input class="txtAmountNew" type="number" value="1"/></td>
+                <td><button class='btnAdd'><img src="{{ url_for('static', filename = 'images/add.png') }}" alt="Add"></button></td>
+            </tr>
+        </table>
+
+    {% elif title == 'Customer' %}
+        <table class="data-table">
+            <tr>
+                {{ column_name|safe }}
+            </tr>
+            {% for item in list %}
+                <tr class="data-generated">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.address }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>
+                        <button class='btnUpdate' name="{{ item.id }}"><img src="{{ url_for('static', filename = 'images/update.png') }}" alt="Update"></button>
+                        <button class='btnDelete' name="{{ item.id }}"><img src="{{ url_for('static', filename = 'images/delete.png') }}" alt="Delete"></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr class="last-row">
+                <td></td>
+                <td><input class="txtNameNew" type="text"/></td>
+                <td><input class="txtAddressNew" type="text"/></td>
+                <td><input class="txtPhoneNew" type="text"/></td>
+                <td><button class='btnAdd'><img src="{{ url_for('static', filename = 'images/add.png') }}" alt="Add"></button></td>
+            </tr>
+        </table>
+
+    {% else %}
+        <table class="data-table">
+            <tr>
+                {{ column_name|safe }}
+            </tr>
+            {% for item in list %}
+                <tr class="data-generated">
+                    <td>{{ item.customer_id }}</td>
+                    <td>{{ item.product_id }}</td>
+                    <td>{{ item.date.strftime('%d/%m/%Y') }}</td>
+                    <td>{{ item.product_amount }}</td>
+                    <td>
+                        <button class='btnUpdate' name="{{ item.customer_id|string + '-' + item.product_id|string }}"><img src="{{ url_for('static', filename = 'images/update.png') }}" alt="Update"></button>
+                        <button class='btnDelete' name="{{ item.customer_id|string + '-' + item.product_id|string }}"><img src="{{ url_for('static', filename = 'images/delete.png') }}" alt="Delete"></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr class="last-row">
+                <td><select class="txtCusIDNew">{{ opt1|safe }}</select></td>
+                <td><select class="txtProIDNew">{{ opt2|safe }}</select></td>
+                <td><input class="txtDateNew" type="date"/></td>
+                <td><input class="txtProductAmountNew" type="number" value="1"/></td>
+                <td><button class='btnAdd'><img src="{{ url_for('static', filename = 'images/add.png') }}" alt="Add"></button></td>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}
+{% block footer %}
+  {{super()}}
+{% endblock %}

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+table, th, td {
+    border: 0px white;
+    margin: 0 auto;
+    border-spacing: 8px 4px;
+    border-collapse: separate;
+    padding: 5px 6px;
+}
+
+table {
+    padding-left: 100px;
+}
+
+#nav {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    height: auto;
+}
+
+#info {
+    position: relative;
+    text-align: center;
+    height: auto;
+    padding: 20px 0;
+}
+
+#nav button {
+    margin: 10px 20px;
+    padding: 10px 20px;
+}
+
+tr:first-child {
+    color: white;
+    font-weight: bold;
+    background: deepskyblue;
+    text-align: center;
+}
+
+tr {
+    color: black;
+    background: lightgray;
+}
+
+tr th:last-child, tr td:last-child {
+    background: white;
+}
+
+tr th:last-child button, tr td:last-child button {
+    margin: 0 5px;
+    padding: 4px 4px 1px 4px;
+}
+
+td.no-data {
+    background: lightgray !important;
+}
+
+#search {
+    margin: 20px 0;
+}
+
+td > input {
+    text-align: center;
+    height: 20px;
+    border: none;
+    width: 100px;
+}
+
+td > input[type='date'] {
+    width: 200px;
+}
+
+.last-row {
+    background: lightsalmon;
+}
+
+#error {
+    color: red;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+#wrapper {
+    min-height: 100%;
+    margin: 0 auto -60px;
+}
+
+#footer, #push {
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    height: 60px;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#footer span {
+    color: red;
+}
