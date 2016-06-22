@@ -1,4 +1,7 @@
 import pymysql
+import os
+import psycopg2
+import urlparse
 from flask import Flask, render_template, request, jsonify, json
 from pymysql.err import MySQLError
 
@@ -11,12 +14,23 @@ def get_connection():
     """
 
     try:
-        conn = pymysql.connect(host='localhost',
+        '''conn = pymysql.connect(host='localhost',
                                user='',
                                password='',
                                db='PythonCourseDB',
                                charset='utf8mb4',
                                cursorclass=pymysql.cursors.DictCursor)
+        '''
+        urlparse.uses_netloc.append("postgres")
+        url = urlparse.urlparse(os.environ["postgres://pvgimronnimcwf:hGKQp7e53ZNrAiLVsXGNLZzIzZ@ec2-54-247-185-241.eu-west-1.compute.amazonaws.com:5432/dae2k2fpmpm4ht"])
+
+        conn = psycopg2.connect(
+            database=url.path[1:],
+            user=url.username,
+            password=url.password,
+            host=url.hostname,
+            port=url.port
+        )
         return conn
 
     except Exception as e:
