@@ -1,8 +1,6 @@
-<h2>Project work</h2>
+# Python  Web-based project
 
-# This is the project that I did after finish intensive Python course in 2 weeks at VAMK.
-# The requirements for this project is simple, just establish CRUD functions for those objects such as Product, Customer and Order. Of course, they come with database.
+This is the project that I did after finishing an intensive Python course within 2 weeks at VAMK.
+The requirements for this project are simple, only CRUD functions for those objects such as Product, Customer and Order are implemented. They come with MySQL database.
 
-# If you find something bad, don't blame on me because I learn about GUI but I did on Web.
-
-# Hoang Phuc
+I used Flask in this project but if you have found something not good, please don't blame on me because I only learned Python GUI but I implemented a Web-based app using Python.
